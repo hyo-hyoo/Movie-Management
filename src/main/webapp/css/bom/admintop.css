@@ -1,0 +1,101 @@
+@charset "UTF-8";
+#Top {
+	margin: 0 auto;
+	height: 60px;
+	background:#F0F8FF;
+	border-color:white;
+	border-style:ridge;
+			}
+#bt{
+height: 10px;
+background:#F0F8FF;
+}
+#img{
+   float:left;
+   width: 10%;
+   height: 100%;
+   display:flex;
+/*    水平方向上 */
+   justify-content:right;
+/*    垂直方向上 */
+   align-items:center;
+}
+#title{
+width: 15%;
+height: 100%;
+float:left;
+/* 让文字在div里居中显示 */
+text-align:center;
+}
+#slogan{
+width: 60%;
+height: 100%;
+float:left;
+ display:flex;
+/*    水平方向上 */
+   justify-content:center;
+/*    垂直方向上 */
+   align-items:center;
+}
+#adminimg{
+width: 5%;
+height: 100%;
+float:left;
+display:flex;
+/*    水平方向上 */
+   justify-content:right;
+/*    垂直方向上 */
+   align-items:center;
+}
+#adminm{
+width: 10%;
+height: 100%;
+float:right;
+display:flex;
+/*    水平方向上 */
+   justify-content:center;
+/*    垂直方向上 */
+   align-items:center;
+}
+#a{
+/* 消除两个p之间的间距，调整第一个p的顶部距离 */
+margin-top:17px;
+}
+.imga{
+/* 设置圆形头像 */
+width:40px; 
+height:40px;
+ border-radius:20px; 
+}
+.imgb{
+width:54px; 
+height:54px;
+ border-radius:27px; 
+}
+#f1{
+font-size:15px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+color:#333333;
+}
+#f2{
+font-size:2px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+color:#333333;
+}
+#f3{
+font-size:18px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+color:#333333;
+}
+#f4{
+font-size:15px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+color:#333333;
+margin-right:5px;
+}
+#f5{
+font-size:15px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+color:#333333;
+margin-left:5px;
+}

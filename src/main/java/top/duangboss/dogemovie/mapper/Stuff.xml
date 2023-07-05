@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="top.duangboss.dogemovie.mapper.StuffMapper">
+	    <insert id="add" keyProperty="id"  useGeneratedKeys="true" parameterType="Stuff" >
+	        insert into stuffinformation(stname, stpid) values (#{stname},#{stpid})    
+	    </insert>
+	    
+	    <delete id="delete" parameterType="int" >
+	        delete from stuffinformation where stid= #{stid}   
+	    </delete>
+	    
+	    <select id="get" parameterType="int" resultType="Stuff">
+	        select * from stuffinformation where stid= #{stid}    
+	    </select>
+
+	    <update id="update" parameterType="Stuff" >
+	        update stuffinformation set STName=#{stname} where stid=#{stid}    
+	    </update>
+	    
+	    <select id="list" resultType="Stuff">
+	        select * from  stuffinformation order by stid asc
+	        <if test  = "start!=null and count!=null">
+	            limit #{start},#{count}
+	        </if>   
+	    </select>
+	    
+	    <select id="count" resultType="int">
+	        select count(*) from stuffinformation
+	    </select>
+	    
+	    <select id="getMax" resultType="int">
+	        select max(stid) from stuffinformation
+	    </select>	    
+	</mapper>

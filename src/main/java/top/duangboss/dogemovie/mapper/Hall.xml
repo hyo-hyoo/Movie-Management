@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="top.duangboss.dogemovie.mapper.HallMapper">
+		<insert id="add" parameterType="Hall" >
+			insert into hallinformation(hcid, hname, hcapacity)
+			values(#{hcid}, #{hname}, #{hcapacity})
+		</insert>
+		
+		<delete id="delete" parameterType="Hall">
+			delete from hallinformation
+			where hid = #{hid}
+		</delete>
+		
+		<select id="getByName" parameterType="String" resultType="Hall">
+			select* from hallinformation 
+			where hname = #{hname}
+		</select>
+		
+		<select id="getById" parameterType="int" resultType="Hall">
+			select* from hallinformation 
+			where hid = #{hid}
+		</select>
+		
+		<update id="update" parameterType="Hall">
+			update hallinformation
+			set hname=#{hname}, hcapacity=#{hcapacity}
+			where hid=#{hid}
+		</update>
+		
+		<select id="list" resultType="Hall">
+			select* from hallinformation
+			<if test="start!=null and count!=null">
+            	limit #{start},#{count}
+        	</if>
+		</select>
+		
+		<select id="listByCinema" resultType="Hall">
+			select* from hallinformation
+			where hcid=#{cid}
+			<if test="page.start!=null and page.count!=null">
+            	limit #{page.start},#{page.count}
+        	</if>
+		</select>
+		
+		<select id="total" parameterType="int" resultType="int">
+        	select count(*) from hallinformation
+        	where hcid=#{hcid}
+    	</select>
+	</mapper>

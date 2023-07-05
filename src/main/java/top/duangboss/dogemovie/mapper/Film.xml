@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.duangboss.dogemovie.mapper.FilmMapper">
+	<insert id="add" parameterType="Film" >
+		insert into filminformation(fname_cn,fname_en,fregion,freleasetime,flength,fprofile,fstate)
+		values (#{fname_cn},#{fname_en},#{fregion},#{freleasetime},#{flength},#{fprofile},#{fstate})
+	</insert>
+
+	<delete id="delete" parameterType="int" >
+		delete from filminformation where fid=#{fid}
+	</delete>
+
+	<select id="get" parameterType="int" resultType="Film">
+		select * from   filminformation  where fid = #{fid}
+	</select>
+
+	<update id="update" parameterType="Film" >
+		update filminformation
+		set fname_cn = #{fname_cn}, fname_en = #{fname_en}, fregion = #{fregion},
+			freleasetime = #{freleasetime}, flength = #{flength},
+			fprofile = #{fprofile}, fstate = #{fstate}
+		where fid=#{fid}
+	</update>
+
+	<select id="list" resultType="Film">
+		select * from  filminformation
+	</select>
+
+	<select id="listSTRO" parameterType="Map" resultType="Film">
+		select * from  filminformation
+		<where>
+			<if test="showType!=null">
+				AND fstate = #{showType}
+			</if>
+			<if test="region!=null">
+				AND fregion = #{region}
+			</if>
+			<if test="typeId!=null">
+				AND fid in (
+				select ftfid from filmtypes where fttid = #{typeId}
+				)
+			</if>
+		</where>
+		order by
+		<if test="orderType==null">
+			flikes
+		</if>
+		<if test="orderType!=null">
+			fscore
+		</if> desc
+	</select>
+
+	<select id="count" resultType="int">
+		 select count(*) from filminformation
+	</select>
+
+	<select id="listByState" resultType="Film">
+		select * from filminformation where fstate = #{state}
+	</select>
+
+	<select id="listBySname" resultType="Film">
+		select * from  filminformation where fname_cn like concat("%",#{name},"%")
+	</select>
+
+	<select id="rankByFboxoffice" resultType="Film">
+		select * from  filminformation where fstate = "在映" Order by fboxoffice desc
+	</select>
+
+	<select id="rankByFlikes" resultType="Film">
+		select * from  filminformation where fstate = "待映" Order by flikes desc
+	</select>
+
+	<select id="rankByFscore" resultType="Film">
+		select * from  filminformation Order by fscore desc
+	</select>
+	
+	<select id="rankByFscore_on" resultType="Film">
+		select * from  filminformation where fstate = "在映" Order by fscore desc
+	</select>
+</mapper>

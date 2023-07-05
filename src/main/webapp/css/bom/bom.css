@@ -1,0 +1,123 @@
+@charset "UTF-8";
+#Navi {
+	width: 15%;
+	height: 400px;
+	float: left;
+	background: white;
+}
+
+#addl {
+	width: 4%;
+	height: 600px;
+	float: left;
+	background: #F0F8FF;
+}
+
+#addb {
+	width: 19%;
+	height: 600px;
+	background: #F0F8FF;
+}
+
+#B {
+	float: right;
+	width: 81%;
+	height: 600px;
+}
+
+#d1 {
+	width: 90%;
+	height: 570px;
+	margin: auto;
+	position: relative;
+	top: 50%;
+	margin-top: -285px;
+}
+
+#d11 {
+	width: 100%;
+	height: 40px;
+	background: lightgrey;
+	position: relative;
+}
+
+#button1 {
+	position: absolute;
+	top: 20%;
+	left: 90%;
+}
+
+#s1 {
+	position: absolute;
+	top: 20%;
+	
+}
+#f6{
+	font-size:18px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:#333333;
+	font-weight:bold;
+}
+#s2 {
+	position: absolute;
+	top: 20%;
+	left: 6%;
+}
+
+#s3 {
+	position: absolute;
+	top: 20%;
+	left: 12%;
+}
+
+#d12 {
+	width: 100%;
+	height: 580px;
+	float: right;
+}
+
+#d121 {
+	width: 95%;
+	height: 550px;
+	margin: auto;
+	position: relative;
+	top: 20%;
+	margin-top: -100px;
+}
+
+#d1211 {
+	width: 100%;
+	height: 500px;
+}
+
+#d1212 {
+	width: 100%;
+	height: 40px;
+}
+
+td {
+	text-align: center;
+}
+
+.modal-body {
+	text-align: center;
+}
+
+.tb2 {
+	border-collapse: collapse;
+}
+
+.td2 {
+	border: 1px silver solid;
+	padding: 5px;
+	font-size: 12px;
+}
+
+#input1 {
+	margin-top: -15px;
+}
+
+
+
+
+

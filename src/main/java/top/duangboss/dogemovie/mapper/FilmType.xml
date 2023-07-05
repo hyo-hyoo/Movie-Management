@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="top.duangboss.dogemovie.mapper.FilmTypeMapper">
+
+	    <insert id="add">
+	        insert into filmtypes values (#{ftfid}, #{fttid})    
+	    </insert>
+	    
+	    <delete id="delete">
+	        delete from filmtypes where ftfid=#{ftfid} AND fttid = #{fttid}   
+	    </delete>
+	    
+	    <!-- 在一个具体的电影里，查询所有的类型名字 -->
+	    <select id="list" parameterType="int" resultType="FilmType">
+	        select fttid, tname from filmtypes, typeinformation where ftfid = #{fid} and fttid = tid
+	    </select>
+	    
+	    <select id="count" resultType="int">
+	        select count(*) from  filmtypes where ftfid=#{ftfid}
+	    </select>	    
+	</mapper>

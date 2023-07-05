@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.duangboss.dogemovie.mapper.OrderMapper">
+	<insert id="add" parameterType="Order">
+		insert into orderinformation(ouid, osid, onum, odealtime, oseats, omoney) values (#{ouid}, #{osid}, #{onum}, #{odealtime}, #{oseats}, #{omoney})
+		<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="oid">
+			select LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<delete id="delete" parameterType="int" >
+		delete from orderinformation where oid= #{oid}
+	</delete>
+
+	<select id="get" parameterType="int" resultType="Order">
+		select * from orderinformation  where oid= #{oid}
+	</select>
+
+	<select id="list" resultType="Order">
+		select * from orderinformation
+	</select>
+
+	<select id="listByUser" parameterType="int" resultType="Order">
+		select oid, odealtime, omoney, oseats, stime AS ostime, fid AS ofid,
+			   fname_cn AS ofname, cname AS ocname, hname AS ohname
+		from orderinformation, filminformation, cinemainformation, sessioninformation, hallinformation
+		where ouid = #{ouid} AND osid = sid AND shid = hid AND hcid = cid AND sfid = fid
+	</select>
+</mapper>
+

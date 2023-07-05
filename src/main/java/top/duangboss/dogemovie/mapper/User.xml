@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="top.duangboss.dogemovie.mapper.UserMapper">
+	    <insert id="add" parameterType="User" >
+	        insert into userinformation(uname, upassword, uemail, utel, uppid) values (#{uname}, #{upassword}, #{uemail}, #{utel}, #{uppid})    
+	    </insert>
+	    
+	    <delete id="delete" parameterType="int" >
+	        delete from userinformation where uid= #{uid}   
+	    </delete>
+	    
+	    <select id="getuid" parameterType="int" resultType="User">
+	        select * from userinformation  where uid= #{uid}  
+	    </select>
+	    
+	    <select id="getuname" parameterType="String" resultType="User">
+	        select * from userinformation  where uname= #{uname}    
+	    </select>
+
+	    <update id="update" parameterType="User" >
+	        update userinformation set uname = #{uname}, upassword=#{upassword}, uemail = #{uemail}, utel = #{utel}  where uid = #{uid}    
+	    </update>
+	    
+	    <select id="list" resultType="user">
+	        select * from userinformation      
+	    </select>
+	    
+	    <select id="listByUname" parameterType="String" resultType="user">
+	        select * from userinformation where uname = uname   
+	    </select>
+	</mapper>
+

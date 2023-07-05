@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.duangboss.dogemovie.mapper.SessionMapper">
+	<insert id="add" parameterType="Session" >
+		insert into sessioninformation(shid, sfid, stime, sseatstate, sprice)
+		values(#{shid}, #{sfid}, #{stime}, #{sseatstate}, #{sprice})
+	</insert>
+
+	<delete id="delete" parameterType="Session">
+		delete from sessioninformation
+		where sid = #{sid}
+	</delete>
+
+
+	<select id="getById" parameterType="int" resultType="Session">
+		select* from sessioninformation
+		where sid = #{sid}
+	</select>
+
+	<update id="update" parameterType="Session">
+		update sessioninformation
+		set stime=#{stime}, sprice=#{sprice}, sseatstate=#{sseatstate}
+		where sid=#{sid}
+	</update>
+
+	<select id="list" resultType="Session">
+		select sid ,sfid,shid,cname 'scname',hname 'shname',fname_cn 'sfname',
+		stime, sseatstate,sprice
+		from sessioninformation,filminformation, hallinformation,cinemainformation
+		where sfid=fid and shid=hid and hcid=cid
+		<if test="start!=null and count!=null">
+			limit #{start},#{count}
+		</if>
+	</select>
+
+	<select id="listByFilm" resultType="Session">
+		select sid ,sfid,shid,cname 'scname',hname 'shname',fname_cn 'sfname',
+		stime, sseatstate,sprice
+		from sessioninformation,filminformation,
+		hallinformation,cinemainformation
+		where sfid=fid and shid=hid and hcid=cid and fname_cn like concat("%",#{fname_cn},"%")
+		<if test="page.start!=null and page.count!=null">
+			limit #{page.start},#{page.count}
+		</if>
+	</select>
+
+
+	<select id="listByFilmCinema" resultType="Session">
+		select sid,sfid,shid,cname 'scname',hname 'shname',fname_cn 'sfname',
+			   stime, sseatstate,sprice
+		from sessioninformation, filminformation, hallinformation, cinemainformation
+		where sfid = fid and shid = hid and hcid = cid and sfid = #{fid} and hcid = #{cid}
+		order by stime asc
+	</select>
+
+	<select id="listByCinema" parameterType="int" resultType="Session">
+		select sid ,sfid,shid,cname 'scname',hname 'shname',fname_cn 'sfname',
+			   stime, sseatstate,sprice
+		from sessioninformation,filminformation,
+			 hallinformation,cinemainformation
+		where sfid=fid and shid=hid and hcid=cid and hcid=#{cid}
+	</select>
+
+	<select id="listByHall" resultType="Session">
+		select sid ,sfid,shid,cname 'scname',hname 'shname',fname_cn 'sfname',
+		stime, sseatstate,sprice
+		from sessioninformation,filminformation,
+		hallinformation,cinemainformation
+		where sfid=fid and shid=hid and hcid=cid and shid=#{hid}
+		<if test="page.start!=null and page.count!=null">
+			limit #{page.start},#{page.count}
+		</if>
+	</select>
+
+	<select id="totalByHall" parameterType="int" resultType="int">
+		select count(*) from sessioninformation
+		where shid=#{shid}
+	</select>
+
+	<select id="totalByFilm" parameterType="String" resultType="int">
+		select count(*) from sessioninformation,filminformation
+		where sfid=fid and fname_cn like concat("%",#{fname_cn},"%")
+	</select>
+
+	<select id="total" resultType="int">
+		select count(*) from sessioninformation
+	</select>
+
+	<select id="getAllById" parameterType="int" resultType="Session">
+		select sid ,sfid,shid,cname 'scname',hname 'shname',fname_cn 'sfname',
+			   stime, sseatstate,sprice
+		from sessioninformation,filminformation,
+			 hallinformation,cinemainformation
+		where sfid=fid and shid=hid and hcid=cid and sid=#{sid}
+	</select>
+
+</mapper>

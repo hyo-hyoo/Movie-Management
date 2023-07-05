@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="top.duangboss.dogemovie.mapper.CinemaMapper">
+		<insert id="add" parameterType="Cinema">
+			insert into cinemainformation (cname, clocation, ctel) values (#{cname}, #{clocation}, #{ctel})
+		</insert>
+		
+		<delete id="delete" parameterType="Cinema">
+			delete from cinemainformation where cid = #{cid}
+		</delete>
+		
+		<select id="getByName" parameterType="String" resultType="Cinema">
+			select* from cinemainformation where cname = #{cname}
+		</select>
+		
+		<select id="getById" parameterType="int" resultType="Cinema">
+			select* from cinemainformation where cid = #{cid}
+		</select>
+		
+		<update id="update" parameterType="Cinema">
+			update cinemainformation set cname=#{cname},clocation=#{clocation},ctel=#{ctel},cpid=#{cpid} where cid=#{cid}
+		</update>
+		
+		<select id="list" resultType="Cinema">
+			select* from cinemainformation
+			<if test="start!=null and count!=null">
+            	limit #{start},#{count}
+        	</if>
+		</select>
+		
+		<select id="list1" resultType="Cinema">
+			select* from cinemainformation
+		</select>
+		
+		<select id="total" resultType="int">
+        	select count(*) from cinemainformation
+    	</select>
+    	
+    	<select id="listByFilm" parameterType="int" resultType="Cinema">
+			select distinct cid, cname, clocation, ctel
+			from sessioninformation, hallinformation, cinemainformation
+			where shid=hid and hcid=cid and sfid=#{fid}
+		</select>
+		
+		<select id="listByFilmAndDate" resultType="Cinema">
+			select distinct cid, cname, clocation, ctel
+			from sessioninformation, hallinformation, cinemainformation
+			where shid = hid and hcid = cid and sfid = #{sfid} and stime like '${stime}%'
+		</select>
+	</mapper>

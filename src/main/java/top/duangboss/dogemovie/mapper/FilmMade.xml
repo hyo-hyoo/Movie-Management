@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="top.duangboss.dogemovie.mapper.FilmMadeMapper">
+
+	    <insert id="add">
+	        insert into filmmade values (#{fmaid}, #{fmfid}, #{fmposition}, #{fmrole})    
+	    </insert>
+	    
+	    <delete id="delete">
+	        delete from filmmade where fmaid=#{fmaid} AND fmfid = #{fmfid}   
+	    </delete>
+	    
+	    <select id="list" parameterType="int" resultType="FilmMade">
+	        select filmmade.*, stname from filmmade, stuffinformation 
+	        where fmfid = #{fid} AND stid = fmaid
+	    </select>
+	    
+	    <select id="count" resultType="int">
+	        select count(*) from  filmmade where fmfid = #{fid}
+	    </select>	    
+	</mapper>

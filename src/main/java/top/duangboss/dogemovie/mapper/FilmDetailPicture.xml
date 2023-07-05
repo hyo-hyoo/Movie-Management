@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="top.duangboss.dogemovie.mapper.FilmDetailPictureMapper">
+		<select id="listByFdpfid"   parameterType="int" resultType="FilmDetailPicture">
+			select * from filmdetailpictures where fdpfid=#{fdpfid}
+		</select>
+		
+		<select id="getMax" resultType="int">
+			select max(fdppid) from filmdetailpictures
+		</select>
+		
+		<insert id="add" parameterType="FilmDetailPicture">
+			insert into filmdetailpictures value(#{fdppid}, #{fdpfid})
+		</insert>
+		
+		<delete id="delete" parameterType="int" >
+	        delete from filmdetailpictures where fdppid=#{fdppid}
+	    </delete>
+	</mapper>

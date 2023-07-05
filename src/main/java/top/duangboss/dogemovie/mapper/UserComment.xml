@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="top.duangboss.dogemovie.mapper.UserCommentMapper">
+	    <insert id="add" parameterType="UserComment" >
+	        insert into usercomment(ucuid, ucfid, uctime, uccontent, ucscore) values (#{ucuid}, #{ucfid}, #{uctime}, #{uccontent}, #{ucscore})    
+	    </insert>
+	    
+	    <delete id="delete" parameterType="int" >
+	        delete from usercomment where ucid= #{ucid}   
+	    </delete>
+	    
+	    <select id="getucid" parameterType="int" resultType="UserComment">
+	        select * from usercomment where ucid = #{ucid}
+	    </select>
+	    
+	    <select id="getucuid" parameterType="int" resultType="UserComment">
+	        select * from usercomment where ucuid= #{ucuid}  
+	    </select>
+	    
+	    <select id="getucfid" parameterType="int" resultType="UserComment">
+	        select usercomment.*, uname 'uc_uname' 
+	        from usercomment, userinformation
+	        where ucfid= #{ucfid} AND uid = ucuid
+	    </select>
+	    
+	    <select id="list" resultType="UserComment">
+	        select * from usercomment
+	    </select>	    
+	    
+	    <select id="getByBoth" resultType="UserComment">
+	        select * from usercomment
+	        where ucuid = #{ucuid} and ucfid = #{ucfid}
+	    </select>   
+	</mapper>
+
