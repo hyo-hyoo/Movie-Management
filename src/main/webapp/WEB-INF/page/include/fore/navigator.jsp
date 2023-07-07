@@ -18,10 +18,10 @@
 		<h1><a href="mainPage" class="logo">DogeMovie</a></h1>
 
 		<div class="nav doge_nav">
-			<div><a href="mainPage">首页</a></div>
-			<div><a href="listFilm?showType=在映&typeId=&region=&orderType=">电影</a></div>
-			<div><a href="listCinemas">影院</a></div>
-			<div><a href="rankFilms?type=fscore_on">榜单</a></div>
+			<div><a href="mainPage">HOME</a></div>
+			<div><a href="listFilm?showType=在映&typeId=&region=&orderType=">MOVIE</a></div>
+			<div><a href="listCinemas">CINEMA</a></div>
+			<div><a href="rankFilms?type=fscore_on">RANK</a></div>
 		</div>
 		<form action="searchFilm" target="_blank" class="search-form doge_serach">
 			<input name="name" class="search" type="search" maxlength="32" placeholder="找电影" autocomplete="off">

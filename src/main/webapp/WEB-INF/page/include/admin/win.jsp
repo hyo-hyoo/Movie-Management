@@ -16,34 +16,34 @@
 															<button data-dismiss="modal" class="close" type="button">
 																<span aria-hidden="true">×</span><span class="sr-only">Close</span>
 															</button>
-															<h4 class="modal-title">修改用户信息</h4>
+															<h4 class="modal-title">Modify User Information</h4>
 														</div>
 														<div class="modal-body">
 															<form action="admin_updateUser">
 																<center>
 																	<table class="tb2">
 																	<tr>
-																			<td class="td2">用户ID</td>
+																			<td class="td2">User ID</td>
 																			<td class="td2"><input type="text"
 																				class="form-control" id="uid1" name="uid"></td>
 																		</tr>
 																		<tr>
-																			<td class="td2">用户名</td>
+																			<td class="td2">User Name</td>
 																			<td class="td2"><input type="text"
 																				class="form-control" id="uname1" name="uname"></td>
 																		</tr>
 																		<tr>
-																			<td class="td2">密码</td>
+																			<td class="td2">Password</td>
 																			<td class="td2"><input type="text"
 																				class="form-control" id="upassword1" name="upassword"></td>
 																		</tr>
 																		<tr>
-																			<td class="td2">邮箱</td>
+																			<td class="td2">Email</td>
 																			<td class="td2"><input type="text"
 																				class="form-control" id="uemail1" name="uemail"></td>
 																		</tr>
 																		<tr>
-																			<td class="td2">电话</td>
+																			<td class="td2">Tel</td>
 																			<td class="td2"><input type="text"
 																				class="form-control" id="utel1" name="utel"></td>
 																		</tr>
@@ -52,7 +52,7 @@
 																</center>
 																
 																<br>
-																<input type = "submit" value = "更新" />
+																<input type = "submit" value = "Update" />
 															</form>
 														</div>
 													</div>
@@ -70,44 +70,44 @@
 															<button data-dismiss="modal" class="close" type="button">
 																<span aria-hidden="true">×</span><span class="sr-only">Close</span>
 															</button>
-															<h4 class="modal-title">添加电影</h4>
+															<h4 class="modal-title">AddFilm</h4>
 														</div>
 														<div class="modal-body">
 															<form action="admin_addFilm">
 																<center>
 																	<table class="tb2">
 																	<tr>
-																			<td class="td2">中文名</td>
+																			<td class="td2">Chinese Name</td>
 																			<td class="td2"><input type="text"
 																				class="form-control" id="fname_cn" name="fname_cn"></td>
 																		</tr>
 																		<tr>
-																			<td class="td2">英文名</td>
+																			<td class="td2">English Name</td>
 																			<td class="td2"><input type="text"
 																				class="form-control" id="fname_en" name="fname_en"></td>
 																		</tr>
 																		<tr>
-																			<td class="td2">简介</td>
+																			<td class="td2">Synopsis</td>
 																			<td class="td2"><input type="text"
 																				class="form-control" id="fprofile" name="fprofile"></td>
 																		</tr>
 																		<tr>
-																			<td class="td2">地区</td>
+																			<td class="td2">Region</td>
 																			<td class="td2"><input type="text"
 																				class="form-control" id="fregion" name="fregion"></td>
 																		</tr>
 																		<tr>
-																			<td class="td2">上映时间</td>
+																			<td class="td2">Release Time</td>
 																			<td class="td2"><input type="text"
 																				class="form-control" id="freleasetime" name="freleasetime"></td>
 																		</tr>
 																		<tr>
-																			<td class="td2">时长</td>
+																			<td class="td2">Duration</td>
 																			<td class="td2"><input type="text"
 																				class="form-control" id="flength" name="flength"></td>
 																		</tr>
 																		<tr>
-																			<td class="td2">状态</td>
+																			<td class="td2">Status</td>
 																			<td class="td2"><input type="text"
 																				class="form-control" id="fstate" name="fstate"></td>
 																		</tr>
@@ -116,7 +116,7 @@
 																</center>
 																
 																<br>
-																<input type = "submit" value = "提交" />
+																<input type = "submit" value = "Submit" />
 															</form>
 														</div>
 													</div>
@@ -134,22 +134,22 @@
 															<button data-dismiss="modal" class="close" type="button">
 																<span aria-hidden="true">×</span><span class="sr-only">Close</span>
 															</button>
-															<h4 class="modal-title">修改用户信息</h4>
+															<h4 class="modal-title">Modify Film Information</h4>
 														</div>
 														<div class="modal-body">
 																<center>
 																	<table class="tb2">
 																	<tr>
-																			<td class="td2"><a href="admin_toUpdateFilm?fid=" style="color:black"><button type="button">修改</button></a></td>
+																			<td class="td2"><a href="admin_toUpdateFilm?fid=" style="color:black"><button type="button">Modify</button></a></td>
 																		</tr>
 																		<tr>
 																			<td class="td2">asd</script></td>
 																		</tr>
 																		<tr>
-																			<td class="td2">简介</td>
+																			<td class="td2">Synopsis</td>
 																		</tr>
 																		<tr>
-																			<td class="td2">地区</td>
+																			<td class="td2">Region</td>
 																		</tr>
 																	</table>
 																</center>
