@@ -23,7 +23,7 @@ The visual effects and functionalities of the user-side pages are showcased in a
 （1）	User Management Page: On this page, the administrator can view users' basic information and perform operations such as modifying or deleting user information.  
 ![003](/img/003.png)
 ![004](/img/004.png)    
-（2）	Movie Management Page: On this page, the administrator can manage movie information. They can perform operations such as adding, deleting, modifying, and searching movies. Additionally, the administrator can modify the status of movies to make them either available or unavailable for screening. The movie information page includes details about the cast and crew, as well as a gallery of movie images, which can only be added or deleted.
+（2）	Movie Management Page: On this page, the administrator can manage movie information. They can perform operations such as adding, deleting, modifying, and searching movies. Additionally, the administrator can modify the status of movies to make them either available or unavailable for screening. The movie information page includes details about the cast and crew, as well as a gallery of movie images, which can only be added or deleted.  
 ![005](/img/005.png)
 ![006](/img/006.png)
 
